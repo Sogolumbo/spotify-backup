@@ -186,7 +186,7 @@ def main():
 			for playlist in playlists:
 				f.write(playlist['name'] + '\r\n')
 				for track in playlist['tracks']:
-					f.write('{name}\t{artists}\t{album}\t{uri}\r\n'.format(
+					f.write('{name}\t{artists}\t{album}\t{uri}\n'.format(
 						uri=track['track']['uri'],
 						name=track['track']['name'],
 						artists=', '.join([artist['name'] for artist in track['track']['artists']]),

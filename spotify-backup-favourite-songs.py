@@ -57,7 +57,7 @@ def main():
 			json.dump(favourites, f)
 		
 		# Tab-separated file.
-		elif args.format == 'txt':
+		elif args.format == 'txt' or args.format=='csv':
 			for track in favourites:
 				f.write('{name}\t{artists}\t{album}\t{uri}\t{added_at}\n'.format(
 					uri=track['track']['uri'],
@@ -66,6 +66,8 @@ def main():
 					album=track['track']['album']['name'],
 					added_at=track['added_at']
 				))
+		else:
+			log('Error: unknown file type "' + args.format + '" (known types are: txt, csv, json).')
 	log('Wrote file: ' + args.file)
 
 if __name__ == '__main__':
